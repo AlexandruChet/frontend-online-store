@@ -1,0 +1,71 @@
+// basic button variables
+$btn-padding-y: 10px;
+$btn-padding-x: 16px;
+$btn-radius: 8px;
+$btn-font-weight: 500;
+
+// colors
+$primary: #2563eb;
+$primary-hover: #1d4ed8;
+$secondary: #6b7280;
+$secondary-hover: #4b5563;
+$danger: #dc2626;
+$danger-hover: #b91c1c;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+
+  padding: $btn-padding-y $btn-padding-x;
+  border-radius: $btn-radius;
+  border: none;
+
+  font-weight: $btn-font-weight;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+.btn-primary {
+  background-color: $primary;
+  color: white;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+.btn-secondary {
+  background-color: $secondary;
+  color: white;
+
+  &:hover {
+    background-color: $secondary-hover;
+  }
+}
+
+.btn-danger {
+  background-color: $danger;
+  color: white;
+
+  &:hover {
+    background-color: $danger-hover;
+  }
+}

@@ -17,18 +17,14 @@ function Header() {
         burgerMenuState &&
         menuRef.current &&
         !menuRef.current.contains(e.target as Node)
-      ) {
-        setBurgerMenuState(false);
-      }
+      ) setBurgerMenuState(false);
     };
 
-    if (burgerMenuState) {
+    if (burgerMenuState)
       document.addEventListener("mousedown", handleClickOutside);
-    }
 
-    return () => {
+    return () =>
       document.removeEventListener("mousedown", handleClickOutside);
-    };
   }, [burgerMenuState]);
 
   return (

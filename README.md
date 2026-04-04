@@ -1,30 +1,56 @@
 # Online Store Frontend
 
-Hello! This is my online store project, which I've been building since I was 15 to hone my front-end development skills and solidify my foundation. The code may not be perfect, as I'm still learning and experimenting.
+This is my online store frontend project built with **Next.js and TypeScript**.
+I started developing it to improve my frontend skills and strengthen my understanding of modern React architecture.
+
+## Features
+
+* Product catalog
+* Shopping cart
+* Filters
+* User authentication
+* Responsive design
 
 ## Technologies Used
-* **React** (Next.js) — the foundation of the application
-* **TypeScript (TS)** — for typing and code reliability
-* **JavaScript (JS)** — component logic
-* **SCSS** — advanced styling
-* **Bootstrap** — fast layout and grid
 
-##  How to Run the Project Locally
+* **React (Next.js)**
+* **TypeScript**
+* **JavaScript**
+* **SCSS**
+* **Bootstrap**
+* **Feature-Sliced Design (FSD)**
 
-If you want to copy this project and run it on your computer, follow these instructions:
+## Project Status
 
-1. **Clone the repository:**
+### This project is currently in development. New features are being added continuously.
+
+## How to Run the Project Locally
+
+Clone the repository:
+
 ```bash
-git clone https://github.com
+git clone https://github.com/AlexandruChet/frontend-online-store
 ```
 
-2. **Go to the project folder:**
-```
+Go to the project folder:
+
+```bash
 cd online_store
 ```
 
+Install dependencies:
 
-3. **Launch a project:**
+```bash
+npm install
 ```
+
+Run the development server:
+
+```bash
 npm run dev
 ```
+
+## Notes
+
+This project is part of my learning journey, so the code may not be perfect.
+I’m actively improving it and applying best practices.
