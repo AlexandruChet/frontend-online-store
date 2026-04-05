@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $navbar-bg: #0f172a;
 $text-color: #f1f5f9;
 $text-muted: #94a3b8;
@@ -139,7 +141,7 @@ $glass-effect: rgba(15, 23, 42, 0.8);
       height: 100vh;
       width: 100%;
       max-width: 300px;
-      background: lighten($navbar-bg, 3%);
+      background: color.scale($navbar-bg, $lightness: 3%);
       flex-direction: column;
       padding-top: 100px;
       gap: 0;
