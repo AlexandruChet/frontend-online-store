@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { calcPrice } from "@/src/features/price/priceLogic";
 
-interface CardProps {
+interface CardValues {
   id: number;
   img: ReactNode;
   title: ReactNode;
@@ -22,7 +22,7 @@ function Card({
   addToOrderBtn,
   buyBtn,
   feedbackBtn,
-}: CardProps) {
+}: CardValues) {
   const endPrice = calcPrice(price, discountValue);
 
   return (
@@ -30,11 +30,23 @@ function Card({
       <div className="product">
         <div className="product_img">{img}</div>
         <div className="product_info">
-          {title}
-          <p className="description">{description}</p>
-          <p className="price">{endPrice} $ </p>
+          <article>
+            {title}
+            <p className="description">{description}</p>
+          </article>
+          <article>
+            {discountValue ? (
+              <>
+                <p className="old-price old-price-styles">
+                  Starting price {price} $
+                </p>
+                <p className="new-price">Final price {endPrice} $</p>
+              </>
+            ) : (
+              <p className="price">{price} $</p>
+            )}
+          </article>
         </div>
-
         <div className="product_logic">
           {addToOrderBtn}
           {buyBtn}

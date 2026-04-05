@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import Logo from "@/public/shop_logo.svg";
 import { useState, useEffect, useRef } from "react";
