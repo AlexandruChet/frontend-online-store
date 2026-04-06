@@ -11,7 +11,8 @@ interface NavbarParameters {
   menuRef: React.RefObject<HTMLDivElement | null>;
 }
 
-const Navbar: React.FC<NavbarParameters> = ({
+
+const HeaderNavbar: React.FC<NavbarParameters> = ({
   logo,
   isOpen,
   toggleMenu,
@@ -44,4 +45,4 @@ const Navbar: React.FC<NavbarParameters> = ({
   );
 };
 
-export default Navbar;
+export default HeaderNavbar;

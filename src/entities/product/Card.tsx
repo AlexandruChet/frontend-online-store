@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { calcPrice } from "@/src/features/price/priceLogic";
+import "./cards.scss";
 
 interface CardValues {
   id: number;
@@ -26,34 +27,32 @@ function Card({
   const endPrice = calcPrice(price, discountValue);
 
   return (
-    <div className="card">
+    <article className="card">
       <div className="product">
         <div className="product_img">{img}</div>
         <div className="product_info">
-          <article>
+          <header>
             {title}
             <p className="description">{description}</p>
-          </article>
-          <article>
+          </header>
+          <div className="price_block">
             {discountValue ? (
               <>
-                <p className="old-price old-price-styles">
-                  Starting price {price} $
-                </p>
-                <p className="new-price">Final price {endPrice} $</p>
+                <span className="old-price">Initial: {price}$</span>
+                <strong className="new-price"> Now: {endPrice}$</strong>
               </>
             ) : (
-              <p className="price">{price} $</p>
+              <span className="price">{price}$</span>
             )}
-          </article>
+          </div>
         </div>
-        <div className="product_logic">
+        <footer className="product_logic">
           {addToOrderBtn}
           {buyBtn}
           {feedbackBtn}
-        </div>
+        </footer>
       </div>
-    </div>
+    </article>
   );
 }
 
