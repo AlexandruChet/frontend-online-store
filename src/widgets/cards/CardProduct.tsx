@@ -13,10 +13,23 @@ import Heading from "@/src/shared/ui/title";
 import { Products } from "@/src/features/interfaces/productInterface";
 import { getJsonData } from "@/src/features/getJson/getJsonLogic";
 import { sortProductsByPriceAsc } from "@/src/features/price/sortByPriceAsc";
+import { sortByCatalog } from "@/src/features/catalog_logic/sort-catalog";
+import { SelectUI } from "@/src/shared/ui/select/Select";
+import "./product.scss";
 
 function CardBody() {
   const [products, setProducts] = useState<Products[]>([]);
   const [isFetching, setIsFetching] = useState<boolean>(true);
+
+  const categoryOptions = [
+    { value: "all", label: "all products" },
+    { value: "phone", label: "phones" },
+    { value: "laptop", label: "laptops" },
+    { value: "watch", label: "clocks" },
+    { value: "audio", label: "audio" },
+    { value: "tablet", label: "tablets" },
+    { value: "accessories", label: "accessories" },
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +50,20 @@ function CardBody() {
   };
 
   if (isFetching) return <Heading text="Loading products..." level={1} />;
-  if (products.length === 0) return <Heading text="No products found" level={1} />;
+  if (products.length === 0)
+    return <Heading text="No products found" level={1} />;
+
+  const handleCategoryChange = async (category: string) => {
+    const data = await getJsonData<Products[]>();
+    if (!data) return;
+
+    if (category === "all") {
+      setProducts(data);
+    } else {
+      const filtered = sortByCatalog(data, category);
+      setProducts(filtered);
+    }
+  };
 
   return (
     <section className="products-cards-section">
@@ -47,6 +73,8 @@ function CardBody() {
           variant="feedback_logic"
           text="Sort from a lower price to a higher price"
         />
+
+        <SelectUI options={categoryOptions} onChange={handleCategoryChange} />
       </div>
       <div className="cards-block">
         {products.map((product) => (
